@@ -14,10 +14,16 @@ Modern, minimalist Tic Tac Toe mobile app built with Flutter.
 
 ## Structure
 
-- lib/main.dart: App theme, game logic (GameState), main GameScreen UI
+- lib/main.dart: App entry and theme wiring
+- lib/theme/app_theme.dart: Ocean Professional ThemeData
+- lib/models/game_state.dart: Board state, game rules, AI, scores
+- lib/widgets/board.dart: Animated board grid
+- lib/widgets/widgets.dart: Reusable UI widgets (mode toggle, chips, scoreboard, background)
+- lib/screens/game_screen.dart: Main screen composition
 - test/widget_test.dart: Basic widget tests
 
 ## Notes
 
 - Code follows Effective Dart and Flutter best practices.
 - No environment variables required.
+- Ready to run on iOS/Android with Flutter 3.29+ and Dart 3.7+.
