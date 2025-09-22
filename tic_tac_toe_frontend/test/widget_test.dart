@@ -12,20 +12,19 @@ void main() {
     expect(find.text('Computer O'), findsOneWidget);
     expect(find.text('Score'), findsOneWidget);
 
-    // Grid should have 9 tappable tiles
-    // We verify by tapping a couple of locations on the board area via semantics
-    // but for simplicity just ensure there are at least some Material tiles.
-    expect(find.byType(GridView), findsOne);
+    // Grid should have 9 cells; ensure GridView exists.
+    expect(find.byType(GridView), findsOneWidget);
   });
 
   testWidgets('Tapping a board cell marks X', (WidgetTester tester) async {
     await tester.pumpWidget(const TicTacToeApp());
-    // Find board and tap roughly first cell by tapping on first GridView child via hitTestable
+
+    // Ensure grid is present.
     final grid = find.byType(GridView);
     expect(grid, findsOneWidget);
 
-    // Tap at a location inside the grid (top-left area)
-    await tester.tapAt(const Offset(50, 250));
+    // Tap at a location inside the grid; approximate based on general layout.
+    await tester.tap(grid);
     await tester.pumpAndSettle(const Duration(milliseconds: 400));
 
     // There should be at least one 'X' on screen now
